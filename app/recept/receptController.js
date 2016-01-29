@@ -24,5 +24,5 @@
             .then(onReceptListSuccess, onError);
     };
 
-    app.controller("receptController", ['$scope', receptController]);
+    app.controller("receptController", receptController);
 }());
