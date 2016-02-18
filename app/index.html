@@ -2,19 +2,79 @@
 <html ng-app="ReceptClient">
 <head>
     <base href="/">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link href="app.css" rel="stylesheet">
+    <link href="menu.css" rel="stylesheet">
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bower_components/pnotify/dist/pnotify.css" rel="stylesheet">
+    <link href="bower_components/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/pnotify/dist/pnotify.js"></script>
+    <script src="bower_components/pnotify/dist/pnotify.buttons.js"></script>
 
     <script src="app.js"></script>
+    <script src="shared/menu/menu.js"></script>
+    <script src="shared/sidedrawers/addRecept/addReceptController.js"></script>
+    <script src="services/alertService.js"></script>
     <script src="services/receptService.js"></script>
     <script src="recept/receptController.js"></script>
 
-</head>
-<body>
-    
-    <h1>Recept</h1>
-    <div ng-view></div>
 
+
+</head>
+
+
+<body>
+    <div id="o-wrapper" class="container o-wrapper">
+        <h1>Recept</h1>
+        <div>
+            <button id="c-button--push-left" class="c-button">Menu test</button>
+        </div>
+        <div ng-view></div>
+    </div>
+
+    <nav id="c-menu--push-left" class="c-menu c-menu--push-left">
+        <button class="c-menu__close">&larr; Close Menu</button>
+        <ul class="c-menu__items">
+            <li class="c-menu__item"><a href="#" class="c-menu__link">Home</a></li>
+            <li class="c-menu__item"><a href="#" class="c-menu__link">About</a></li>
+            <li class="c-menu__item"><a href="#" class="c-menu__link">Services</a></li>
+            <li class="c-menu__item"><a href="#" class="c-menu__link">Work</a></li>
+            <li class="c-menu__item"><a href="#" class="c-menu__link">Contact</a></li>
+        </ul>
+    </nav><!-- /c-menu push-left -->
+
+    <ng-include ng-controller="addReceptController" src="'shared/sidedrawers/addRecept/addRecept.html'"></ng-include>
+
+    <div id="c-mask" class="c-mask"></div>
+
+    <script>
+
+        /**
+         * Push left instantiation and action.
+         */
+        var pushLeft = new Menu({
+            wrapper: '#o-wrapper',
+            type: 'push-left',
+            menuOpenerClass: '.c-button',
+            maskId: '#c-mask'
+        });
+
+        var pushLeftBtn = document.querySelector('#c-button--push-left');
+
+        pushLeftBtn.addEventListener('click', function(e) {
+            e.preventDefault;
+            pushLeft.open();
+        });
+
+    </script>
 </body>
+
 </html>

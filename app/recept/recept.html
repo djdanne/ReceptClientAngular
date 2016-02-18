@@ -1,4 +1,27 @@
 ﻿<div>
-    Här kommer senare att visas en lista av recept.
-    {{receptList.receptNamn}}
+    <input type="button" ng-click="showAddNewReceptSection()" value="Nytt recept" class="btn btn-sm btn-primary">
+
 </div>
+<div>
+    <h3>
+        Receptlista
+    </h3>
+    <table class="table table-hover">
+        <th>
+            Receptnamn
+        </th>
+        <th>
+            Kommentar
+        </th>
+        <tr ng-repeat="recept in receptList">
+            <td>
+                {{recept.receptNamn}}
+            </td>
+            <td>
+                {{recept.kommentar}}
+            </td>
+        </tr>
+    </table>
+</div>
+
+

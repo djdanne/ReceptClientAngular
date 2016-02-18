@@ -2,14 +2,22 @@
 
     var receptService = function ($http) {
         var getReceptList = function () {
-            return $http.get("http://localhost:3000/api/recept/5681c89055ce00a415e232c7")
+            return $http.get("http://localhost:3000/api/receptList")
+                .then(function (response) {
+                    return response.data;
+                });
+        };
+
+        var addRecept = function (receptDO) {
+            return $http.post("http://localhost:3000/api/recept", receptDO)
                 .then(function (response) {
                     return response.data;
                 });
         };
 
         return {
-            getReceptList: getReceptList
+            getReceptList: getReceptList,
+            addRecept: addRecept
         };
     };
 

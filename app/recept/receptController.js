@@ -9,8 +9,20 @@
         });
     }]);
 
-    var receptController = function ($scope, receptService) {
-        $scope.test = "Hej hej 2";
+    var receptController = function ($scope, $rootScope, receptService) {
+
+        /**
+         * Push left instantiation and action.
+         */
+        var pushRight = new Menu({
+            wrapper: '#o-wrapper',
+            type: 'push-right',
+            maskId: '#c-mask'
+        });
+
+        $scope.showAddNewReceptSection = function () {
+            pushRight.open();
+        };
 
         var onReceptListSuccess = function (data) {
             $scope.receptList = data;
@@ -20,8 +32,20 @@
             // handle error
         };
 
-        receptService.getReceptList()
-            .then(onReceptListSuccess, onError);
+        var getReceptList = function () {
+            receptService.getReceptList()
+                .then(onReceptListSuccess, onError);
+        };
+
+        $scope.addRecept = function (){
+            receptService.addRecept($scope.newRecept)
+                .then(getReceptList, onError);
+        };
+
+        // Ladda om receptlistan om broadcast
+        $rootScope.$on("reloadReceptList", getReceptList);
+
+        getReceptList();
     };
 
     app.controller("receptController", receptController);

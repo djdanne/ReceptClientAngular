@@ -1,0 +1,26 @@
+<nav id="c-menu--push-right" class="c-menu c-menu--push-right">
+    <button class="c-menu__close">&larr; Close Menu</button>
+
+    <form class="form-horizontal container-margin">
+        <div class="form-group">
+            <label for="receptNamn" class="col-md-4 control-label">Namn:</label>
+            <div class="col-md-8">
+                <input type="text" ng-model="newRecept.receptDO.receptNamn" id="receptNamn" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="receptLaenk" class="col-md-4 control-label">Länk:</label>
+            <div class="col-md-8">
+                <input type="text" ng-model="newRecept.receptDO.laenk" id="receptlaenk" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="receptKommentar" class="col-md-4 control-label">Kommentar:</label>
+            <div class="col-md-8">
+                <input type="text" ng-model="newRecept.receptDO.kommentar" id="receptKommentar" class="form-control">
+            </div>
+        </div>
+        <input type="submit" ng-click="addRecept(newRecept)" value="Spara" class="btn btn-sm btn-primary">
+    </form>
+
+</nav><!-- /c-menu push-right -->
