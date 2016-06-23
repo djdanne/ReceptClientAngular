@@ -19,12 +19,21 @@
     <script src="bower_components/pnotify/dist/pnotify.js"></script>
     <script src="bower_components/pnotify/dist/pnotify.buttons.js"></script>
 
+    <!-- Applicationscript -->
+    <script src="services/app.services.js"></script>
     <script src="app.js"></script>
+
+    <!--shared-->
     <script src="shared/menu/menu.js"></script>
     <script src="shared/sidedrawers/addRecept/addReceptController.js"></script>
+
+    <!--services-->
     <script src="services/alertService.js"></script>
     <script src="services/receptService.js"></script>
-    <script src="recept/receptController.js"></script>
+
+
+    <!--controllers-->
+    <script src="controllers/recept/receptController.js"></script>
 
 
 
@@ -55,26 +64,26 @@
 
     <div id="c-mask" class="c-mask"></div>
 
-    <script>
+    <!--<script>-->
 
-        /**
-         * Push left instantiation and action.
-         */
-        var pushLeft = new Menu({
-            wrapper: '#o-wrapper',
-            type: 'push-left',
-            menuOpenerClass: '.c-button',
-            maskId: '#c-mask'
-        });
+        <!--/**-->
+         <!--* Push left instantiation and action.-->
+         <!--*/-->
+        <!--var pushLeft = new Menu({-->
+            <!--wrapper: '#o-wrapper',-->
+            <!--type: 'push-left',-->
+            <!--menuOpenerClass: '.c-button',-->
+            <!--maskId: '#c-mask'-->
+        <!--});-->
 
-        var pushLeftBtn = document.querySelector('#c-button--push-left');
+        <!--var pushLeftBtn = document.querySelector('#c-button&#45;&#45;push-left');-->
 
-        pushLeftBtn.addEventListener('click', function(e) {
-            e.preventDefault;
-            pushLeft.open();
-        });
+        <!--pushLeftBtn.addEventListener('click', function(e) {-->
+            <!--e.preventDefault;-->
+            <!--pushLeft.open();-->
+        <!--});-->
 
-    </script>
+    <!--</script>-->
 </body>
 
 </html>
